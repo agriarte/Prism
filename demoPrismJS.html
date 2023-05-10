@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de PrismJS</title>
+
+    <!-- Incluir la biblioteca de Prismjs y sus componentes necesarios -->
+    <link rel="stylesheet" href="./css/prism.css" />
+    <script src="./js/prism.js"></script>
+
+</head>
+
+<body>
+    <h1>Ejemplos de Prismjs</h1>
+    
+    <p>Sencillos ejemplos para comprobar como funciona la librería <b>PrismJS</b> descargada en mayo 2023 (no tiene
+        número de versión).
+    </p>
+    <p>Para los colores se escoge el tema estándar 'Okaidia' y además marco estos ajustes:</p>
+    <p>Partiendo de los ajustes base predeterminados:</p>
+    <ul>
+        <li>Markup + HTML + XML + SVG + MathML + SSML + Atom + RSS</li>
+        <li>CSS</li>
+        <li>C-like</li>
+        <li>JavaScript</li>
+    </ul>
+    <p>Otros lenguajes añadidos opcionalmente:</p>
+    <ul>
+        <li>Bash+Shell+Shell de zeitgeist87</li>
+        <li>Docker de JustinBeckwith</li>
+        <li>PHP de milesj</li>
+        <li>Markup templating Golmote</li>
+    </ul>
+
+    <p>Para aligerar el peso de PrismJS deben descargarse sólo los complementos realmente necesarios.</p>
+
+    <h2>Forma de uso</h2>
+
+    <p>
+        Incluir el archivo 'prism.css' y 'prism.js' descargado desde <a href="https://prismjs.com/"
+            target="_blank">PrismJS</a> con nuestras preferencias de lenguajes, temas, etc.
+    </p>
+    <pre><code class="language-html">&lt;!-- Incluir la biblioteca de Prismjs y sus componentes necesarios --&gt;
+&lt;link rel="stylesheet" href="./css/prism.css"/&gt;   
+&lt;script src="./js/prism.js"&gt;&lt;/script&gt;</code></pre>
+    <p>
+        También existen varios CDN para incluir la biblioteca sin necesidad de descargarla, así como una gran colección
+        de temas y extras creados por desarrolladores independientes.
+    </p>
+
+    <p>
+        Los códigos que se quieren resaltar en la web irán dentro de <code class="language-none">pre</code> y <code
+            class="language-none">code</code> y la clase con
+        el lenguaje utilizado. Ejemplo:
+    </p>
+    <p>
+        Para HTML, usar <code class="language-none">class="language-html"</code>; para JavaScript, usar <code
+            class="language-none">class="language-js"</code>; etc.
+    </p>
+    <p>
+        La lista de lenguajes y tipos de código es muy grande. Consultar en <a
+            href="https://prismjs.com/index.html#supported-languages" target="_blank">Lenguajes PrismJS</a>
+    </p>
+
+    <pre><code class="language-html">&lt;pre&gt;&lt;code class="language-xxxx"&gt;
+    // sustituir xxxx según el contenido a resaltar
+&lt;/code&gt;&lt;/pre&gt;</code></pre>
+
+    <h2>HTML</h2>
+    <p>Usando <code class="language-none">class="language-html"</code></p>
+    <pre class="language-html"><code >&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Un formulario cualquiera&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;form action="" method="post" name="datos_usuario" id="datos_usuario"&gt;
+    &lt;table width="15%" align="center"&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Nombre:&lt;/td&gt;
+            &lt;td&gt;&lt;label for="nombre_usuario"&gt;&lt;/label&gt;
+                &lt;input type="text" name="nombre_usuario" id="nombre_usuario_id"&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Edad:&lt;/td&gt;
+            &lt;td&gt;&lt;label for="edad_usuario"&gt;&lt;/label&gt;
+                &lt;input type="text" name="edad_usuario" id="edad_usuario_id"&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td colspan="2" align="center"&gt;&lt;input type="submit" name="boton_enviando" id="enviando_id" value="Enviar"&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;/form&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+    <h2>Resaltar comandos dentro de una caja en la misma línea.</h2>
+    <p>Se usa <code class="language-none">class="language-none"</code>. El código de está línea es el siguiente:</p>
+    <pre><code class="language-html">&lt;p&gt;Se usa &lt;code class="language-none"&gt;class="language-none"&lt;/code&gt;. El código de está línea es el siguiente:&lt;/p&gt;</code></pre>
+
+    <h2>PHP</h2>
+    <p>Usando <code class="language-none">class="language-php"</code></p>
+
+    <pre><code class="language-php">&lt;?php
+
+require "20Conexion.php";
+
+class DevuelveProductos extends Conexion {
+
+    public function DevuelveProductos() {
+
+        parent::Conexion();
+    }
+
+    public function getProductos() {
+        $sql = "SELECT * FROM articulos";
+        $consultaprep = $this->conexion_db->prepare($sql);
+        $consultaprep->execute(array());
+        $resultado = $consultaprep->fetchAll(PDO::FETCH_ASSOC);
+
+        $consultaprep->closeCursor();
+
+        return $resultado;
+
+        $this->conexion_db = null;
+    }
+
+    /* mysqli------------------------------------------------------------------
+      $resultado= $this->conexion_db->query('SELECT * FROM articulos');
+      $productos=$resultado->fetch_all(MYSQLI_ASSOC);
+      return $productos;
+      ------------------------------------------------------------------------- */
+    }
+?></code></pre>
+
+    <h2>Javascript</h2>
+
+    <p>Usando <code class="language-none">class="language-js"</code></p>
+
+    <pre><code class="language-js">&lt;script type="text/javascript">
+var onloadCallback = function() {
+  alert("Hola mundo!");
+};
+&lt;/script></code></pre>
+
+    <h2>Algunos ejemplos con Bash y terminales</h2>
+    <p>Usando <code class="language-none">class="language-bash"</code></p>
+
+    <pre><code class="language-bash">pedro@tallerdeapps:~$ ls
+apachedockerfile  directorio        fichero1.txt   nginxdockerfile
+borrar.txt        ejemplo.txt.save  fichero2.txt   texto.txt
+destino.txt       ejemplo2.txt      get-docker.sh
+pedro@tallerdeapps:~$ cd ..
+pedro@tallerdeapps:/home$ ls
+pedro  tallerdeapps  usuario1  usuario2
+pedro@tallerdeapps:/home$ cd pedro
+pedro@tallerdeapps:~$ echo "hola" > borrar.txt
+pedro@tallerdeapps:~$ ls
+apachedockerfile  directorio        fichero1.txt   nginxdockerfile
+borrar.txt        ejemplo.txt.save  fichero2.txt   texto.txt
+destino.txt       ejemplo2.txt      get-docker.sh
+pedro@tallerdeapps:~$ rm borrar.txt</code></pre>
+
+    <p>Script en Bash</p>
+    <pre><code class="language-bash">for (( i=0;i&lt;$ELEMENTS;i++)); do
+echo ${ARRAY[${i}]}
+done
+while read LINE; do
+ARRAY[$count]=$LINE
+((count++))
+done
+if [ -d $directory ]; then
+echo "Directory exists"
+else
+echo "Directory does not exists"</code></pre>
+
+    <h2>Git</h2>
+    <p>Usando <code class="language-none">class="language-bash"</code> (me gusta más que el específico 'language-git'
+        también disponible)
+    <pre><code class="language-bash">$ git checkout
+M       demoPrismJS.html
+Your branch is up to date with 'origin/main'.
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   demoPrismJS.html
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   demoPrismJS.html</code></pre>
+
+</body>
+
+</html>
